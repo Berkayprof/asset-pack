@@ -2125,7 +2125,7 @@
             }
         },
         shootPressed: function() {
-            if (now() - this.lastFired < 200) {
+            if (now() - this.lastFired < 25) {
                 return;
             }
             this.lastFired = now();
