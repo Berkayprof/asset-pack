@@ -13,7 +13,6 @@
 <body>
     <div class="container">
         <h1>HTML Asset Pack</h1>
-
         <div class="asset">
             <h3 onclick="toggleVisibility('footerCode')">Footer <span>▼</span></h3>
             <div id="footerCode" class="hidden">
@@ -25,13 +24,11 @@
     text-align: center;
     margin-top: auto;
 }</code></pre>
-
                 HTML<pre><code class="language-html">&lt;footer&gt;
     &lt;p&gt;Powered by Glitch | Made by Berkay&lt;/p&gt;
 &lt;/footer&gt;</code></pre>
             </div>
         </div>
-
         <div class="asset">
             <h3 onclick="toggleVisibility('topnavCode')">Responsive TopNav <span>▼</span></h3>
             <div id="topnavCode" class="hidden">
@@ -39,7 +36,6 @@
     overflow: hidden;
     background-color: #333;
 }
-
 .topnav a {
     float: left;
     display: block;
@@ -49,21 +45,17 @@
     text-decoration: none;
     font-size: 17px;
 }
-
 .topnav a:hover {
     background-color: #ddd;
     color: black;
 }
-
 .topnav a.active {
     background-color: #04AA6D;
     color: white;
 }
-
 .topnav .icon {
     display: none;
 }
-
 @media screen and (max-width: 600px) {
     .topnav a:not(:first-child) {display: none;}
     .topnav a.icon {
@@ -71,7 +63,6 @@
         display: block;
     }
 }
-
 @media screen and (max-width: 600px) {
     .topnav.responsive {position: relative;}
     .topnav.responsive .icon {
@@ -85,7 +76,6 @@
         text-align: left;
     }
 }</code></pre>
-
                 HTML<pre><code class="language-html">&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"&gt;
 &lt;div class="topnav" id="myTopnav"&gt;
     &lt;a href="#home" class="active"&gt;Home&lt;/a&gt;
@@ -96,7 +86,6 @@
         &lt;i class="fa fa-bars"&gt;&lt;/i&gt;
     &lt;/a&gt;
 &lt;/div&gt;</code></pre>
-
                 Javascript<pre><code class="language-js">function topNav() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
@@ -116,6 +105,356 @@
 }</code></pre>
             </div>
         </div>
+
+        <!-- ===== NEUMORPHISM SECTIE ===== -->
+        <div class="asset">
+            <h3 onclick="toggleVisibility('neumorphismSetup')">🫧 Neumorphism — Setup (begin hier!) <span>▼</span></h3>
+            <div id="neumorphismSetup" class="hidden">
+                <p style="margin: 8px 0 4px; color: #aaa; font-size: 13px;">Zet deze CSS-variabelen bovenaan je stylesheet. Alle neumorphism-componenten hieronder werken automatisch met deze kleuren.</p>
+                CSS<pre><code class="language-css">/* ====== NEUMORPHISM BASE ====== */
+:root {
+    --neu-bg: #e0e5ec;
+    --neu-light: #ffffff;
+    --neu-dark: #a3b1c6;
+    --neu-text: #4a5568;
+    --neu-accent: #6c63ff;
+    --neu-radius: 14px;
+    --neu-shadow: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light);
+    --neu-shadow-inset: inset 4px 4px 8px var(--neu-dark), inset -4px -4px 8px var(--neu-light);
+}
+
+/* Zet dit op je body of wrapper-div */
+.neu-page {
+    background: var(--neu-bg);
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--neu-text);
+    padding: 40px;
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="asset">
+            <h3 onclick="toggleVisibility('neuButtonCode')">🫧 Neumorphism — Knop (Button) <span>▼</span></h3>
+            <div id="neuButtonCode" class="hidden">
+                <p style="margin: 8px 0 4px; color: #aaa; font-size: 13px;">Vereist: Neumorphism Setup hierboven.</p>
+                CSS<pre><code class="language-css">.neu-btn {
+    background: var(--neu-bg);
+    border: none;
+    border-radius: var(--neu-radius);
+    box-shadow: var(--neu-shadow);
+    color: var(--neu-text);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 28px;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+    letter-spacing: 0.5px;
+}
+.neu-btn:hover {
+    box-shadow: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+}
+.neu-btn:active {
+    box-shadow: var(--neu-shadow-inset);
+    transform: scale(0.98);
+}
+
+/* Accent-variant */
+.neu-btn-accent {
+    background: var(--neu-accent);
+    color: #fff;
+    box-shadow: 6px 6px 12px #5a52d5, -6px -6px 12px #7e76ff;
+}
+.neu-btn-accent:active {
+    box-shadow: inset 4px 4px 8px #5a52d5, inset -4px -4px 8px #7e76ff;
+}</code></pre>
+                HTML<pre><code class="language-html">&lt;button class="neu-btn"&gt;Klik mij&lt;/button&gt;
+&lt;button class="neu-btn neu-btn-accent"&gt;Accent knop&lt;/button&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="asset">
+            <h3 onclick="toggleVisibility('neuCardCode')">🫧 Neumorphism — Card <span>▼</span></h3>
+            <div id="neuCardCode" class="hidden">
+                <p style="margin: 8px 0 4px; color: #aaa; font-size: 13px;">Vereist: Neumorphism Setup hierboven.</p>
+                CSS<pre><code class="language-css">.neu-card {
+    background: var(--neu-bg);
+    border-radius: calc(var(--neu-radius) * 1.5);
+    box-shadow: var(--neu-shadow);
+    padding: 28px;
+    max-width: 320px;
+}
+.neu-card h2 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    color: var(--neu-text);
+}
+.neu-card p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.75;
+}</code></pre>
+                HTML<pre><code class="language-html">&lt;div class="neu-card"&gt;
+    &lt;h2&gt;Kaart Titel&lt;/h2&gt;
+    &lt;p&gt;Dit is een neumorphism card. Makkelijk copy-pasten!&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="asset">
+            <h3 onclick="toggleVisibility('neuInputCode')">🫧 Neumorphism — Invoerveld (Input) <span>▼</span></h3>
+            <div id="neuInputCode" class="hidden">
+                <p style="margin: 8px 0 4px; color: #aaa; font-size: 13px;">Vereist: Neumorphism Setup hierboven.</p>
+                CSS<pre><code class="language-css">.neu-input {
+    background: var(--neu-bg);
+    border: none;
+    border-radius: var(--neu-radius);
+    box-shadow: var(--neu-shadow-inset);
+    color: var(--neu-text);
+    font-size: 15px;
+    outline: none;
+    padding: 14px 18px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: box-shadow 0.2s ease;
+}
+.neu-input::placeholder {
+    color: var(--neu-dark);
+}
+.neu-input:focus {
+    box-shadow: inset 4px 4px 10px var(--neu-dark),
+                inset -4px -4px 10px var(--neu-light),
+                0 0 0 2px var(--neu-accent);
+}</code></pre>
+                HTML<pre><code class="language-html">&lt;input class="neu-input" type="text" placeholder="Typ hier iets..."&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="asset">
+            <h3 onclick="toggleVisibility('neuSliderCode')">🫧 Neumorphism — Slider (Range) <span>▼</span></h3>
+            <div id="neuSliderCode" class="hidden">
+                <p style="margin: 8px 0 4px; color: #aaa; font-size: 13px;">Vereist: Neumorphism Setup hierboven.</p>
+                CSS<pre><code class="language-css">.neu-slider-wrapper {
+    background: var(--neu-bg);
+    border-radius: var(--neu-radius);
+    box-shadow: var(--neu-shadow-inset);
+    padding: 8px 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.neu-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    width: 100%;
+    height: 6px;
+    outline: none;
+    cursor: pointer;
+}
+.neu-slider::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, var(--neu-accent), var(--neu-dark));
+    border-radius: 10px;
+    height: 6px;
+}
+.neu-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--neu-bg);
+    box-shadow: 3px 3px 6px var(--neu-dark), -3px -3px 6px var(--neu-light);
+    margin-top: -8px;
+    cursor: pointer;
+    transition: box-shadow 0.15s;
+}
+.neu-slider::-webkit-slider-thumb:active {
+    box-shadow: inset 2px 2px 4px var(--neu-dark), inset -2px -2px 4px var(--neu-light);
+}</code></pre>
+                HTML<pre><code class="language-html">&lt;div class="neu-slider-wrapper"&gt;
+    &lt;input class="neu-slider" type="range" min="0" max="100" value="50"&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="asset">
+            <h3 onclick="toggleVisibility('neuToggleCode')">🫧 Neumorphism — Toggle (Schakelaar) <span>▼</span></h3>
+            <div id="neuToggleCode" class="hidden">
+                <p style="margin: 8px 0 4px; color: #aaa; font-size: 13px;">Vereist: Neumorphism Setup hierboven. Geen JS nodig!</p>
+                CSS<pre><code class="language-css">.neu-toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+.neu-toggle input {
+    display: none;
+}
+.neu-toggle-track {
+    width: 56px;
+    height: 28px;
+    border-radius: 14px;
+    background: var(--neu-bg);
+    box-shadow: var(--neu-shadow-inset);
+    position: relative;
+    transition: background 0.3s;
+}
+.neu-toggle-thumb {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--neu-bg);
+    box-shadow: 3px 3px 6px var(--neu-dark), -3px -3px 6px var(--neu-light);
+    transition: transform 0.3s ease;
+}
+.neu-toggle input:checked ~ .neu-toggle-track {
+    background: var(--neu-accent);
+    box-shadow: inset 3px 3px 6px #5a52d5, inset -3px -3px 6px #7e76ff;
+}
+.neu-toggle input:checked ~ .neu-toggle-track .neu-toggle-thumb {
+    transform: translateX(28px);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+.neu-toggle-label {
+    font-size: 15px;
+    color: var(--neu-text);
+    font-weight: 500;
+}</code></pre>
+                HTML<pre><code class="language-html">&lt;label class="neu-toggle"&gt;
+    &lt;input type="checkbox"&gt;
+    &lt;div class="neu-toggle-track"&gt;
+        &lt;div class="neu-toggle-thumb"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;span class="neu-toggle-label"&gt;Zet aan&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="asset">
+            <h3 onclick="toggleVisibility('neuBadgeCode')">🫧 Neumorphism — Badge / Chip <span>▼</span></h3>
+            <div id="neuBadgeCode" class="hidden">
+                <p style="margin: 8px 0 4px; color: #aaa; font-size: 13px;">Vereist: Neumorphism Setup hierboven.</p>
+                CSS<pre><code class="language-css">.neu-badge {
+    display: inline-block;
+    background: var(--neu-bg);
+    border-radius: 999px;
+    box-shadow: var(--neu-shadow);
+    color: var(--neu-text);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    padding: 6px 16px;
+    text-transform: uppercase;
+}
+.neu-badge-accent {
+    background: var(--neu-accent);
+    color: #fff;
+    box-shadow: 4px 4px 8px #5a52d5, -4px -4px 8px #7e76ff;
+}</code></pre>
+                HTML<pre><code class="language-html">&lt;span class="neu-badge"&gt;Nieuw&lt;/span&gt;
+&lt;span class="neu-badge neu-badge-accent"&gt;Actief&lt;/span&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="asset">
+            <h3 onclick="toggleVisibility('neuProgressCode')">🫧 Neumorphism — Voortgangsbalk (Progress) <span>▼</span></h3>
+            <div id="neuProgressCode" class="hidden">
+                <p style="margin: 8px 0 4px; color: #aaa; font-size: 13px;">Vereist: Neumorphism Setup hierboven.</p>
+                CSS<pre><code class="language-css">.neu-progress-track {
+    background: var(--neu-bg);
+    border-radius: 999px;
+    box-shadow: var(--neu-shadow-inset);
+    height: 14px;
+    width: 100%;
+    overflow: hidden;
+}
+.neu-progress-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--neu-accent), #a78bfa);
+    box-shadow: 2px 0 8px rgba(108, 99, 255, 0.5);
+    transition: width 0.4s ease;
+}</code></pre>
+                HTML<pre><code class="language-html">&lt;div class="neu-progress-track"&gt;
+    &lt;div class="neu-progress-fill" style="width: 65%;"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="asset">
+            <h3 onclick="toggleVisibility('neuAvatarCode')">🫧 Neumorphism — Avatar / Icoon <span>▼</span></h3>
+            <div id="neuAvatarCode" class="hidden">
+                <p style="margin: 8px 0 4px; color: #aaa; font-size: 13px;">Vereist: Neumorphism Setup hierboven.</p>
+                CSS<pre><code class="language-css">.neu-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--neu-bg);
+    box-shadow: var(--neu-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    overflow: hidden;
+}
+.neu-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}</code></pre>
+                HTML<pre><code class="language-html">&lt;!-- Met emoji --&gt;
+&lt;div class="neu-avatar"&gt;🧑&lt;/div&gt;
+
+&lt;!-- Met afbeelding --&gt;
+&lt;div class="neu-avatar"&gt;
+    &lt;img src="jouw-foto.jpg" alt="Avatar"&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="asset">
+            <h3 onclick="toggleVisibility('neuNotifCode')">🫧 Neumorphism — Notificatievak <span>▼</span></h3>
+            <div id="neuNotifCode" class="hidden">
+                <p style="margin: 8px 0 4px; color: #aaa; font-size: 13px;">Vereist: Neumorphism Setup hierboven.</p>
+                CSS<pre><code class="language-css">.neu-notif {
+    background: var(--neu-bg);
+    border-radius: var(--neu-radius);
+    box-shadow: var(--neu-shadow);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    max-width: 360px;
+}
+.neu-notif-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+.neu-notif-text strong {
+    display: block;
+    font-size: 14px;
+    color: var(--neu-text);
+    margin-bottom: 2px;
+}
+.neu-notif-text span {
+    font-size: 12px;
+    opacity: 0.65;
+}</code></pre>
+                HTML<pre><code class="language-html">&lt;div class="neu-notif"&gt;
+    &lt;div class="neu-notif-icon"&gt;🔔&lt;/div&gt;
+    &lt;div class="neu-notif-text"&gt;
+        &lt;strong&gt;Nieuwe melding&lt;/strong&gt;
+        &lt;span&gt;Je hebt 3 ongelezen berichten.&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>
